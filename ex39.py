@@ -59,3 +59,7 @@ if not state:
 # get a city with a default value
 city = cities.get('TX', 'Does not Exist')
 print "The city for the sate 'TX' is: %s" % city
+
+# print the dictionary for cities
+print '-' * 10
+print cities.items();
