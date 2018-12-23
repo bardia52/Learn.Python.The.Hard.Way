@@ -17,7 +17,7 @@ class Cat(Animal):
 		self.name = name
 
 ## Person is-a Object
-class Person(Object):
+class Person(object):
 
 	def __init__(self, name):
 		## Person has-a name
