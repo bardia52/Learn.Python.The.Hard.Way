@@ -1,20 +1,22 @@
 class Lexicon(object):
 
-    def convert_number(s):
+    @classmethod
+    def convert_number(self, s):
         try:
             return int(s)
         except ValueError:
             return None
 
-    def scan(s):
-        directions = ['north', 'south', 'west', 'east']
-        verbs = ['go', 'kill', 'eat']
-        stops = ['the', 'in', 'of']
-        nouns = ['bear', 'princess']
+    @classmethod
+    def scan(self, s):
+        directions = ['north', 'south', 'west', 'east', 'NORTH', 'SOUTH', 'WEST', 'EAST']
+        verbs = ['go', 'kill', 'eat', 'stop', 'KILL']
+        stops = ['the', 'in', 'of', 'at', 'from', 'it', 'FROM']
+        nouns = ['bear', 'princess', 'Bear']
 
         result = []
 
-        words = s.lower().split()
+        words = s.split()
 
         for word in words:
             if word in directions:
@@ -25,8 +27,8 @@ class Lexicon(object):
                 result.append(('stop', word))
             elif word in nouns:
                 result.append(('noun', word))
-            elif Lexicon.convert_number(word):
-                result.append(('number', int(word)))
+            elif word.isdigit():
+                result.append(('number', word))
             else:
                 result.append(('error', word))
 

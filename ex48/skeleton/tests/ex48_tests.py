@@ -1,10 +1,10 @@
 from nose.tools import *
-from ex48 import lexicon
+from ex48.lexicon import Lexicon
 
 
 def text_directions():
-    assert_equal(lexicon.scan("north"), [('direction', 'north')])
-    result = lexicon.scan("north South EAST west dOwn up left right back")
+    assert_equal(Lexicon.scan("north"), [('direction', 'north')])
+    result = Lexicon.scan("north South EAST west dOwn up left right back")
     assert_equal(result, [('direction', 'north'),
                           ('direction', 'South'),
                           ('direction', 'EAST'),
@@ -18,8 +18,8 @@ def text_directions():
 
 
 def test_verbs():
-    assert_equal(lexicon.scan("go"), [('verb', 'go')])
-    result = lexicon.scan("go KILL eat stop")
+    assert_equal(Lexicon.scan('go'), [('verb', 'go')])
+    result = Lexicon.scan("go KILL eat stop")
     assert_equal(result, [('verb', 'go'),
                           ('verb', 'KILL'),
                           ('verb', 'eat'),
@@ -28,8 +28,8 @@ def test_verbs():
 
 
 def test_stops():
-    assert_equal(lexicon.scan("the"), [('stop', 'the')])
-    result = lexicon.scan("the in of FROM at it")
+    assert_equal(Lexicon.scan("the"), [('stop', 'the')])
+    result = Lexicon.scan("the in of FROM at it")
     assert_equal(result, [('stop', 'the'),
                           ('stop', 'in'),
                           ('stop', 'of'),
@@ -40,8 +40,8 @@ def test_stops():
 
 
 def test_numbers():
-    assert_equal(lexicon.scan("1234"), [('number', '1234')])
-    result = lexicon.scan("3 91234 23098 8128 0")
+    assert_equal(Lexicon.scan("1234"), [('number', '1234')])
+    result = Lexicon.scan("3 91234 23098 8128 0")
     assert_equal(result, [('number', '3'),
                           ('number', '91234'),
                           ('number', '23098'),
@@ -51,8 +51,8 @@ def test_numbers():
 
 
 def test_errors():
-    assert_equal(lexicon.scan("ASDFADFASDF"), [('error', 'ASDFADFASDF')])
-    result = lexicon.scan("Bear IAS princess")
+    assert_equal(Lexicon.scan("ASDFADFASDF"), [('error', 'ASDFADFASDF')])
+    result = Lexicon.scan("Bear IAS princess")
     assert_equal(result, [('noun', 'Bear'),
                           ('error', 'IAS'),
                           ('noun', 'princess')
