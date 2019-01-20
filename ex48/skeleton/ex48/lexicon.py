@@ -11,7 +11,7 @@ class Lexicon(object):
     def scan(self, s):
         directions = ['north', 'south', 'west', 'east', 'NORTH', 'SOUTH', 'WEST', 'EAST']
         verbs = ['go', 'kill', 'eat', 'stop', 'KILL']
-        stops = ['the', 'in', 'of', 'at', 'from', 'it', 'FROM']
+        stops = ['the', 'in', 'of', 'at', 'from', 'it', 'FROM', 'to']
         nouns = ['bear', 'princess', 'Bear']
 
         result = []

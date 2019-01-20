@@ -41,6 +41,7 @@ class Parser(object):
 
     def parse_verb(self, word_list):
         skip(word_list, 'stop')
+        skip(word_list, 'error')
 
         if peek(word_list) == 'verb':
             return match(word_list, 'verb')
@@ -50,6 +51,9 @@ class Parser(object):
 
     def parse_object(self, word_list):
         skip(word_list, 'stop')
+        skip(word_list, 'error')
+        skip(word_list, 'stop')
+        skip(word_list, 'error')
         next = peek(word_list)
 
         if next == 'noun':
@@ -57,7 +61,7 @@ class Parser(object):
         if next == 'direction':
             return match(word_list, 'direction')
         else:
-            raise ParserError("Expected a noun or direction next.")
+            raise ParserError("Expected a noun or direction next. in ", word_list)
 
 
     def parse_subject(self, word_list, subj):
