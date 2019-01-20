@@ -12,7 +12,7 @@ class Lexicon(object):
         directions = ['north', 'south', 'west', 'east', 'NORTH', 'SOUTH', 'WEST', 'EAST']
         verbs = ['go', 'kill', 'eat', 'stop', 'KILL']
         stops = ['the', 'in', 'of', 'at', 'from', 'it', 'FROM', 'to']
-        nouns = ['bear', 'princess', 'Bear']
+        nouns = ['bear', 'princess', 'Bear', 'door', 'cabinet']
 
         result = []
 
