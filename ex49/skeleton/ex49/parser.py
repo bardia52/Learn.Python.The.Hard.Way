@@ -45,7 +45,7 @@ class Parser(object):
         if peek(word_list) == 'verb':
             return match(word_list, 'verb')
         else:
-            raise ParserError("Expected a verb next.")
+            raise ParserError("Expected a verb next. in ", word_list)
 
 
     def parse_object(self, word_list):
